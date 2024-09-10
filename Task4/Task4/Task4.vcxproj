@@ -24,6 +24,7 @@
     <ProjectGuid>{2d92c685-76fd-4696-ae8a-ef5b07fb92ad}</ProjectGuid>
     <RootNamespace>Task4</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SiAOD</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,7 +128,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Task4.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Homework.cpp" />
+    <ClCompile Include="Homework5_1.cpp" />
+    <ClCompile Include="HomeworkSelector.cpp" />
+    <ClCompile Include="Task.cpp" />
+    <ClCompile Include="SiAOD.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="Homework.h" />
+    <ClInclude Include="Homework5_1.h" />
+    <ClInclude Include="HomeworkSelector.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Task.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
