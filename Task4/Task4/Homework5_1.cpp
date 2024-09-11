@@ -4,6 +4,7 @@
 #include <bitset>
 #include <chrono>
 #include <fstream>
+#include <math.h>
 
 using namespace std;
 
@@ -189,9 +190,29 @@ void Homework5_1::Task3a::Execute()
     unsigned int numsAmount;
     cout << "¬ведите количество чисел: ";
     cin >> numsAmount;
+
+    const int cBufferSize = 1024;
+    char cBuffer[cBufferSize];
+
+    unsigned int count = 0;
+
     for (unsigned int i = 0; i < numsAmount; ++i)
     {
-        initFile << numsAmount - i - 1 << "\n";
+        //initFile << numsAmount - i - 1 << "\n";
+        unsigned int rI = numsAmount - i - 1;
+        _itoa(rI, cBuffer + count, 10);
+        count += rI != 0 ? log10(rI) + 2 : 2;
+        cBuffer[count - 1] = '\n';
+        if (count > cBufferSize - 8)
+        {
+            initFile.write(cBuffer, count);
+            count = 0;
+        }
+    }
+    if (count > 0)
+    {
+        initFile.write(cBuffer, count);
+        count = 0;
     }
 
     initFile.close();
@@ -199,15 +220,20 @@ void Homework5_1::Task3a::Execute()
     cout << "„исла записаны в файл. ";
     system("pause");
 
+    //ios::sync_with_stdio(false);
+
     auto start = chrono::high_resolution_clock::now();
 
     ifstream inFile("nums.txt", ios_base::in);
-    vector<unsigned char> charContainers(numsAmount / 8);
+    vector<unsigned char> charContainers(numsAmount / 8, 0);
     unsigned int buffer;
+    string sBuffer;
 
     for (unsigned int i = 0; i < numsAmount; ++i)
     {
-        inFile >> buffer;
+        //inFile >> buffer;
+        getline(inFile, sBuffer);
+        buffer = stoi(sBuffer);
         charContainers[buffer / 8] |= 1 << (buffer % 8);
     }
 
@@ -219,9 +245,20 @@ void Homework5_1::Task3a::Execute()
     {
         if (charContainers[i / 8] % 2)
         {
-            wFile << i << "\n";
+            _itoa(i, cBuffer + count, 10);
+            count += i != 0 ? log10(i) + 2 : 2;
+            cBuffer[count - 1] = '\n';
+            if (count > cBufferSize - 8)
+            {
+                wFile.write(cBuffer, count);
+                count = 0;
+            }
         }
         charContainers[i / 8] >>= 1;
+    }
+    if (count > 0)
+    {
+        wFile.write(cBuffer, count);
     }
 
     wFile.close();
@@ -238,9 +275,31 @@ void Homework5_1::Task3b::Execute()
     unsigned int numsAmount;
     cout << "¬ведите количество чисел: ";
     cin >> numsAmount;
+
+    unsigned int memCount = 0;
+    const int cBufferSize = 1024;
+    char cBuffer[cBufferSize];
+    memCount += cBufferSize;
+
+    unsigned int count = 0;
+
     for (unsigned int i = 0; i < numsAmount; ++i)
     {
-        initFile << numsAmount - i - 1 << "\n";
+        //initFile << numsAmount - i - 1 << "\n";
+        unsigned int rI = numsAmount - i - 1;
+        _itoa(rI, cBuffer + count, 10);
+        count += rI != 0 ? log10(rI) + 2 : 2;
+        cBuffer[count - 1] = '\n';
+        if (count > cBufferSize - 8)
+        {
+            initFile.write(cBuffer, count);
+            count = 0;
+        }
+    }
+    if (count > 0)
+    {
+        initFile.write(cBuffer, count);
+        count = 0;
     }
 
     initFile.close();
@@ -248,18 +307,21 @@ void Homework5_1::Task3b::Execute()
     cout << "„исла записаны в файл. ";
     system("pause");
 
+    //ios::sync_with_stdio(false);
+
     auto start = chrono::high_resolution_clock::now();
-    unsigned int memCount = 0;
 
     ifstream inFile("nums.txt", ios_base::in);
-    vector<unsigned char> charContainers(numsAmount / 8);
+    vector<unsigned char> charContainers(numsAmount / 8, 0);
     memCount += numsAmount / 8;
     unsigned int buffer;
-    memCount += 4;
+    string sBuffer;
 
     for (unsigned int i = 0; i < numsAmount; ++i)
     {
-        inFile >> buffer;
+        //inFile >> buffer;
+        getline(inFile, sBuffer);
+        buffer = stoi(sBuffer);
         charContainers[buffer / 8] |= 1 << (buffer % 8);
     }
 
@@ -271,9 +333,20 @@ void Homework5_1::Task3b::Execute()
     {
         if (charContainers[i / 8] % 2)
         {
-            wFile << i << "\n";
+            _itoa(i, cBuffer + count, 10);
+            count += i != 0 ? log10(i) + 2 : 2;
+            cBuffer[count - 1] = '\n';
+            if (count > cBufferSize - 8)
+            {
+                wFile.write(cBuffer, count);
+                count = 0;
+            }
         }
         charContainers[i / 8] >>= 1;
+    }
+    if (count > 0)
+    {
+        wFile.write(cBuffer, count);
     }
 
     wFile.close();

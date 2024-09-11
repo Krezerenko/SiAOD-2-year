@@ -58,4 +58,6 @@ void HomeworkSelector::Start()
 			break;
 		}
 	} while (true);
+
+	cout << "Программа завершена.\n";
 }
