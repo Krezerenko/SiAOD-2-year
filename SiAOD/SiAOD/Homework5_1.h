@@ -57,8 +57,6 @@ class Homework5_1 :
         void Execute() override;
     };
 
-    static void PrintFirstExample(unsigned int x, unsigned int mask, unsigned int shift = 4);
-
 public:
     Homework5_1(std::string name);
 };

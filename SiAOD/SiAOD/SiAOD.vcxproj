@@ -132,6 +132,8 @@
     <ClCompile Include="Homework.cpp" />
     <ClCompile Include="Homework5_1.cpp" />
     <ClCompile Include="HomeworkSelector.cpp" />
+    <ClCompile Include="Homework_5_2.cpp" />
+    <ClCompile Include="Listings.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="SiAOD.cpp" />
   </ItemGroup>
@@ -140,6 +142,7 @@
     <ClInclude Include="Homework.h" />
     <ClInclude Include="Homework5_1.h" />
     <ClInclude Include="HomeworkSelector.h" />
+    <ClInclude Include="Homework_5_2.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Task.h" />
   </ItemGroup>

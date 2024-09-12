@@ -4,7 +4,6 @@
 #include <bitset>
 #include <chrono>
 #include <fstream>
-#include <math.h>
 
 using namespace std;
 
@@ -18,13 +17,9 @@ Homework5_1::Homework5_1(string name) : Homework(name)
 
 void Homework5_1::Task1a::Execute()
 {
-    cout << "Задание 1.а.\n";
-
     unsigned int inputAmount;
-    unsigned int x = 255;
+    unsigned int x;
     unsigned int mask = 1;
-
-    PrintFirstExample(x, mask);
 
     cout << "Введите количество вводов x: ";
     cin >> inputAmount;
@@ -33,25 +28,35 @@ void Homework5_1::Task1a::Execute()
     {
         cout << "Введите x: ";
         cin >> x;
-        PrintFirstExample(x, mask);
+        cout << "Установка 4-го бита x в 0\n";
+
+        x = x & (~(mask << 4));
+        cout << "x = " << x << "\n";
     }
 }
 
 void Homework5_1::Task1b::Execute()
 {
-    cout << "\nЗадание 1.б.\n";
-
-    unsigned int x = 255;
+    unsigned int inputAmount;
+    unsigned int x;
     unsigned int mask = 1;
 
-    unsigned int shift = 7;
-    PrintFirstExample(x, mask, shift);
+    cout << "Введите количество вводов x: ";
+    cin >> inputAmount;
+
+    for (unsigned int i = 0; i < inputAmount; i++)
+    {
+        cout << "Введите x: ";
+        cin >> x;
+        cout << "Установка 7-го бита x в 1\n";
+
+        x = x | mask << 7;
+        cout << "x = " << x << "\n";
+    }
 }
 
 void Homework5_1::Task1c::Execute()
 {
-    cout << "\nЗадание 1.в\n";
-
     unsigned int x = 255;
     unsigned int mask = 1;
 
@@ -74,7 +79,6 @@ void Homework5_1::Task2a::Execute()
     vector<unsigned char> nums;
     unsigned int inputAmount;
 
-    cout << "\nЗадание 2.а\n";
     cout << "Введите количество чисел: ";
     do
     {
@@ -112,7 +116,6 @@ void Homework5_1::Task2b::Execute()
     vector<unsigned char> nums;
     unsigned int inputAmount;
 
-    cout << "\nЗадание 2.б\n";
     cout << "Введите количество чисел: ";
     do
     {
@@ -150,7 +153,6 @@ void Homework5_1::Task2c::Execute()
     vector<unsigned char> nums;
     unsigned int inputAmount;
 
-    cout << "\nЗадание 2.в\n";
     nums.clear();
     cout << "Введите количество чисел: ";
     do
@@ -356,14 +358,4 @@ void Homework5_1::Task3b::Execute()
 
     cout << "Затраченное время: " << (chrono::duration_cast<chrono::milliseconds>(duration)).count() / 1000.0 << " с.\n";
     cout << "Размер использованной оперативной памяти: " << memCount / 1024.0 / 1024.0 << " Mb\n";
-}
-
-void Homework5_1::PrintFirstExample(unsigned int x, unsigned int mask, unsigned int shift)
-{
-    cout << "Начальное значение x: " << x << "\n";
-    cout << "Начальная маска: " << mask << "\n";
-    cout << "Сдвиг маски влево на " << shift << " битов\n";
-
-    x = x & (~(mask << shift));
-    cout << "x = " << x << "\n";
 }

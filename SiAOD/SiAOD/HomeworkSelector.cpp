@@ -54,6 +54,7 @@ void HomeworkSelector::Start()
 		}
 		else
 		{
+			cout << "\n";
 			(*it)->Execute();
 			break;
 		}
