@@ -7,7 +7,7 @@
 using namespace std;
 
 
-Task::Task(string name)
+Task::Task(const string& name)
 {
 	_name = name;
 }
@@ -30,4 +30,10 @@ void Task::ExecuteFormatted(const std::string& text)
 	    cout << parts[0] << _name << parts[1];
 	}
 	Execute();
+	cout << "\n";
+}
+
+void Task::ExecuteFormatted()
+{
+	ExecuteFormatted("Задание |\n");
 }

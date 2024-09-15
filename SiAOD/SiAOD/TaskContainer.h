@@ -7,11 +7,11 @@ class TaskContainer : public Task
 {
 protected:
 	std::vector<Task*> _tasks;
-public:
 	TaskContainer(std::string name);
+public:
 	const std::vector<Task*>& Tasks();
     void Execute() override;
-	void ExecuteFormatted(const std::string& text =
-        "Введите номер задания. Доступные номера:\n|Ввод: |Неверный номер задания. Повторите ввод: \n") override;
+	void ExecuteFormatted(const std::string& text) override;
+	void ExecuteFormatted() override;
 };
 

@@ -23,34 +23,44 @@ void TaskContainer::Execute()
 
 void TaskContainer::ExecuteFormatted(const string& text)
 {
-	vector<string> parts;
-	Split(text, "|", parts);
+    while (true)
+    {
+        vector<string> parts;
+        Split(text, "|", parts);
 
-	string taskName;
-	if (!parts.empty()) 
-		cout << parts[0];
+        string taskName;
+        if (!parts.empty()) 
+            cout << parts[0];
 
-	for (auto task : _tasks)
-	{
-		cout << task->Name() << "\n";
-	}
-	if (parts.size() >= 2) 
-		cout << parts[1];
+        for (auto task : _tasks)
+        {
+            cout << task->Name() << "\n";
+        }
+        if (parts.size() >= 2) 
+            cout << parts[1];
 
-	do
-	{
-		getline(cin, taskName);
-		auto it = find_if(_tasks.begin(), _tasks.end(), [taskName](const Task* t) { return t->Name() == taskName; });
-		if (it == _tasks.end())
-		{
-			if (parts.size() >= 3) 
-				cout << parts[2];
-		}
-		else
-		{
-			cout << "\n";
-			(*it)->ExecuteFormatted();
-			break;
-		}
-	} while (true);
+        do
+        {
+            getline(cin >> ws, taskName);
+            if (parts.size() >= 3 && taskName == parts[2]) return;
+            auto it = find_if(_tasks.begin(), _tasks.end(), [taskName](const Task* t) { return t->Name() == taskName; });
+            if (it == _tasks.end())
+            {
+                if (parts.size() >= 4) 
+                    cout << parts[3];
+            }
+            else
+            {
+                cout << "\n";
+                (*it)->ExecuteFormatted();
+                break;
+            }
+        } while (true);
+        cout << "\n";
+    }
+}
+
+void TaskContainer::ExecuteFormatted()
+{
+	ExecuteFormatted("Введите номер задания. Для выхода наберите \"назад\". Доступные номера:\n|Ввод: |назад|Неверный номер задания. Повторите ввод: ");
 }

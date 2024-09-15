@@ -1,6 +1,6 @@
 #pragma once
 #include "TaskContainer.h"
-class Homework_5_2 :
+class Homework5_2 :
     public TaskContainer
 {
     class Task1 : public Task
@@ -24,6 +24,6 @@ class Homework_5_2 :
     };
 
 public:
-    Homework_5_2(std::string name);
+    Homework5_2(std::string name);
 };
 

@@ -6,54 +6,72 @@ class Homework5_1 :
     class Task1a final : public Task 
     {
     public:
-        using Task::Task;
+        Task1a(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task1b final : public Task
     {
     public:
-        using Task::Task;
+        Task1b(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task1c final : public Task
     {
     public:
-        using Task::Task;
+        Task1c(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task2a final : public Task
     {
     public:
-        using Task::Task;
+        Task2a(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task2b final : public Task
     {
     public:
-        using Task::Task;
+        Task2b(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task2c final : public Task
     {
     public:
-        using Task::Task;
+        Task2c(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task3a final : public Task
     {
-        using Task::Task;
+    public:
+        Task3a(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 
     class Task3b final : public Task
     {
-        using Task::Task;
+    public:
+        Task3b(const std::string& name) : Task(name)
+        {
+        }
         void Execute() override;
     };
 

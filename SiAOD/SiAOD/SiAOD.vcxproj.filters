@@ -42,7 +42,7 @@
     <ClCompile Include="TaskContainer.cpp">
       <Filter>Исходные файлы\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Homework_5_2.cpp">
+    <ClCompile Include="Homework5_2.cpp">
       <Filter>Исходные файлы\Homeworks</Filter>
     </ClCompile>
     <ClCompile Include="Homework5_1.cpp">
@@ -65,7 +65,7 @@
     <ClInclude Include="TaskContainer.h">
       <Filter>Файлы заголовков\Base</Filter>
     </ClInclude>
-    <ClInclude Include="Homework_5_2.h">
+    <ClInclude Include="Homework5_2.h">
       <Filter>Файлы заголовков\Homeworks</Filter>
     </ClInclude>
     <ClInclude Include="Homework5_1.h">
