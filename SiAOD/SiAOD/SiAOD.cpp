@@ -9,5 +9,5 @@ int main()
     SetConsoleOutputCP(1251);
 
     auto selector = HomeworkSelector();
-    selector.Start();
+    selector.ExecuteFormatted();
 }

@@ -13,54 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\Base">
+      <UniqueIdentifier>{1125a706-5724-4682-aa98-8e4c5f971b4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Homeworks">
+      <UniqueIdentifier>{b476375e-4a7d-4ebc-be48-a58a036f01be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Base">
+      <UniqueIdentifier>{efb1a1fe-b4fe-447f-941b-c449796f9e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Homeworks">
+      <UniqueIdentifier>{930f9677-bec4-4256-84ec-6de6bed6757b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SiAOD.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="HomeworkSelector.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Homework.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Task.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Functions.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Homework5_1.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Listings.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Исходные файлы\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>Исходные файлы\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskContainer.cpp">
+      <Filter>Исходные файлы\Base</Filter>
+    </ClCompile>
     <ClCompile Include="Homework_5_2.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Homeworks</Filter>
+    </ClCompile>
+    <ClCompile Include="Homework5_1.cpp">
+      <Filter>Исходные файлы\Homeworks</Filter>
+    </ClCompile>
+    <ClCompile Include="HomeworkSelector.cpp">
+      <Filter>Исходные файлы\Homeworks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HomeworkSelector.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Homework.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Task.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Functions.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Homework5_1.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Файлы заголовков\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>Файлы заголовков\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskContainer.h">
+      <Filter>Файлы заголовков\Base</Filter>
+    </ClInclude>
     <ClInclude Include="Homework_5_2.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Homeworks</Filter>
+    </ClInclude>
+    <ClInclude Include="Homework5_1.h">
+      <Filter>Файлы заголовков\Homeworks</Filter>
+    </ClInclude>
+    <ClInclude Include="HomeworkSelector.h">
+      <Filter>Файлы заголовков\Homeworks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

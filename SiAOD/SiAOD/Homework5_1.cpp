@@ -1,5 +1,5 @@
 #include "Homework5_1.h"
-#include "Functions.h"
+#include "Global.h"
 #include <iostream>
 #include <bitset>
 #include <chrono>
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Homework5_1::Homework5_1(string name) : Homework(name)
+Homework5_1::Homework5_1(string name) : TaskContainer(name)
 {
     _tasks = {
     	new Task1a("1.а"), new Task1b("1.б"), new Task1c("1.в"),
@@ -57,12 +57,10 @@ void Homework5_1::Task1b::Execute()
 
 void Homework5_1::Task1c::Execute()
 {
-    unsigned int x = 255;
-    unsigned int mask = 1;
 
     const int n = sizeof(int) * 8;
-    x = 25;
-    mask = 1 << (n - 1);
+    unsigned int x = 25;
+    unsigned int mask = 1 << (n - 1);
     cout << "Начальная маска: " << mask << " = " << bitset<n>(mask) << "\n";
     cout << "Результат: ";
 

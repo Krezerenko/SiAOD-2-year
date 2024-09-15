@@ -1,9 +1,9 @@
 #pragma once
-#include "Homework.h"
+#include "TaskContainer.h"
 class Homework5_1 :
-    public Homework
+    public TaskContainer
 {
-    class Task1a : public Task 
+    class Task1a final : public Task 
     {
     public:
         using Task::Task;

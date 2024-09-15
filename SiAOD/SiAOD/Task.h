@@ -10,6 +10,7 @@ public:
 	virtual ~Task() = default;
 
 	const std::string& Name() const;
-	virtual void Execute() = 0;
+	virtual void Execute();
+	virtual void ExecuteFormatted(const std::string& text = "Задание |\n");
 };
 

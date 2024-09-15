@@ -1,14 +1,10 @@
 #pragma once
-#include "Homework.h"
-#include <string>
-#include<vector>
+#include "TaskContainer.h"
 
-
-class HomeworkSelector
+class HomeworkSelector : TaskContainer
 {
-	std::vector<Homework> _homeworks;
 public:
 	HomeworkSelector();
-	void Start();
+	void ExecuteFormatted(const std::string& text = "Введите номер работы. Доступные номера:\n|Ввод: |Неверный номер работы. Повторите ввод: \n") override;
 };
 

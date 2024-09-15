@@ -1,4 +1,4 @@
-#include "Functions.h"
+#include "Global.h"
 #include <iostream>
 
 using namespace std;
@@ -27,4 +27,18 @@ void OutputNumbers(vector<unsigned char>& list)
         cout << (unsigned int)num << " ";
     }
     cout << "\n";
+}
+
+void Split(const std::string& text, const string& delimiter, vector<string>& tokens)
+{
+    tokens.clear();
+    string s = text;
+    size_t pos = 0;
+    while ((pos = s.find(delimiter)) != string::npos) 
+    {
+        string token = s.substr(0, pos);
+        tokens.push_back(token);
+        s.erase(0, pos + delimiter.length());
+    }
+    tokens.push_back(s);
 }

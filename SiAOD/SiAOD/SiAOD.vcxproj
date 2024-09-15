@@ -105,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,8 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Functions.cpp" />
-    <ClCompile Include="Homework.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="TaskContainer.cpp" />
     <ClCompile Include="Homework5_1.cpp" />
     <ClCompile Include="HomeworkSelector.cpp" />
     <ClCompile Include="Homework_5_2.cpp" />
@@ -138,8 +139,8 @@
     <ClCompile Include="SiAOD.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Functions.h" />
-    <ClInclude Include="Homework.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="TaskContainer.h" />
     <ClInclude Include="Homework5_1.h" />
     <ClInclude Include="HomeworkSelector.h" />
     <ClInclude Include="Homework_5_2.h" />
