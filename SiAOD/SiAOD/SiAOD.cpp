@@ -1,7 +1,6 @@
 ﻿#include <Windows.h>
 #include "HomeworkSelector.h"
-
-using namespace std;
+#include <iostream>
 
 int main()
 {

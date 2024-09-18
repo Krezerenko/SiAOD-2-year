@@ -1,5 +1,6 @@
 #include "Global.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -41,4 +42,49 @@ void Split(const std::string& text, const string& delimiter, vector<string>& tok
         s.erase(0, pos + delimiter.length());
     }
     tokens.push_back(s);
+}
+
+void GenerateRandomKeys(const unsigned int maxAmount, const unsigned int keysAmount, vector<unsigned int>& buffer)
+{
+    buffer.clear();
+    vector<bool> keyTable(maxAmount, false);
+    for (unsigned int i = 0; i < keysAmount; i++)
+    {
+        unsigned int r = rand() % maxAmount;
+        int k = 0;
+        while (keyTable[(r + k) % maxAmount])
+        {
+            k *= -1;
+            if (!keyTable[(r + k) % maxAmount])
+            {
+                break;
+            }
+            k *= -1;
+            k++;
+        }
+        buffer.push_back((r + k) % maxAmount);
+    }
+}
+
+void DisplayTimeDuration(std::chrono::steady_clock::duration duration)
+{
+    auto time = chrono::duration_cast<chrono::nanoseconds>(duration);
+    string timeUnit = "наносекунд";
+    long double convertedTime = time.count();
+    if (convertedTime >= 1000)
+    {
+        convertedTime /= 1000;
+        timeUnit = "микросекунд";
+        if (convertedTime >= 1000)
+        {
+            convertedTime /= 1000;
+            timeUnit = "милисекунд";
+            if (convertedTime >= 1000)
+            {
+                convertedTime /= 1000;
+                timeUnit = "секунд";
+            }
+        }
+    }
+    cout << "Затраченное время: " << convertedTime << ' ' << timeUnit << ".\n";
 }
