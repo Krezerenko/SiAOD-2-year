@@ -63,6 +63,7 @@ void GenerateRandomKeys(const unsigned int maxAmount, const unsigned int keysAmo
             k++;
         }
         buffer.push_back((r + k) % maxAmount);
+        keyTable[(r + k) % maxAmount] = true;
     }
 }
 
