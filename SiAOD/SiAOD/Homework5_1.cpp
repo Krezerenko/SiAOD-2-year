@@ -198,7 +198,6 @@ void Homework5_1::Task3a::Execute()
 
     for (unsigned int i = 0; i < numsAmount; ++i)
     {
-        //initFile << numsAmount - i - 1 << "\n";
         unsigned int rI = numsAmount - i - 1;
         _itoa(rI, cBuffer + count, 10);
         count += rI != 0 ? log10(rI) + 2 : 2;
@@ -220,8 +219,6 @@ void Homework5_1::Task3a::Execute()
     cout << "Числа записаны в файл. ";
     system("pause");
 
-    //ios::sync_with_stdio(false);
-
     auto start = chrono::high_resolution_clock::now();
 
     ifstream inFile("nums.txt", ios_base::in);
@@ -231,7 +228,6 @@ void Homework5_1::Task3a::Execute()
 
     for (unsigned int i = 0; i < numsAmount; ++i)
     {
-        //inFile >> buffer;
         getline(inFile, sBuffer);
         buffer = stoi(sBuffer);
         charContainers[buffer / 8] |= 1 << (buffer % 8);

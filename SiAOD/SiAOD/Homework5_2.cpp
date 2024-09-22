@@ -11,6 +11,7 @@ using namespace std;
 void GenerateStudentsFile(ofstream& file, unsigned int studentsAmount, unsigned int keySize, unsigned int groupSize, unsigned int nameSize);
 char* LinearFileSearch(const std::string& fileName, const unsigned int key, const unsigned int entrySize, const unsigned int keyPosition);
 void PrintStudent(char* student, const unsigned int keySize, const unsigned int groupSize, const unsigned int nameSize);
+void GenerateKeyTable(vector<unsigned long long>& table, ifstream& file, const unsigned int entrySize, const unsigned int keyOffset);
 
 Homework5_2::Homework5_2(const std::string& name) : TaskContainer(name)
 {
@@ -68,7 +69,10 @@ void Homework5_2::Task2::Execute()
 
 void Homework5_2::Task3::Execute()
 {
+    ifstream file("students.sts", ios::binary | ios::in);
     vector<unsigned long long> keyTable;
+    GenerateKeyTable(keyTable, file, 64, 0);
+
 }
 
 void GenerateStudentsFile(ofstream& file, unsigned int studentsAmount, unsigned int keySize, unsigned int groupSize, unsigned int nameSize)
@@ -100,7 +104,7 @@ void GenerateStudentsFile(ofstream& file, unsigned int studentsAmount, unsigned 
     names.close();
 }
 
-char* LinearFileSearch(const string& fileName, const unsigned int key, const unsigned int entrySize, const unsigned int keyPosition)
+char* LinearFileSearch(const string& fileName, const unsigned int key, const unsigned int entrySize, const unsigned int keyOffset)
 {
     ifstream file(fileName, ios::binary | ios::in);
     if (!file)
@@ -110,9 +114,9 @@ char* LinearFileSearch(const string& fileName, const unsigned int key, const uns
     }
 
     char* buffer = new char[entrySize];
-    while (file.read(buffer, 64))
+    while (file.read(buffer, entrySize))
     {
-        unsigned int readKey = *reinterpret_cast<unsigned int*>(buffer + keyPosition);
+        unsigned int readKey = *reinterpret_cast<unsigned int*>(buffer + keyOffset);
         if (readKey == key)
         {
             file.close();
@@ -130,4 +134,17 @@ void PrintStudent(char* student, const unsigned int keySize, const unsigned int 
     cout.write(student + keySize, groupSize) << '\n';
     cout << "ÔÈÎ: ";
     cout.write(student + keySize + groupSize, nameSize) << '\n';
+}
+
+void GenerateKeyTable(vector<unsigned long long>& table, ifstream& file, const unsigned int entrySize, const unsigned int keyOffset)
+{
+    char* entry = new char[entrySize];
+    unsigned int i = 0;
+    while (file.read(entry, entrySize))
+    {
+        unsigned int key = *reinterpret_cast<unsigned int*>(entry + keyOffset);
+        *reinterpret_cast<unsigned int*>(&table[i]) = key;
+        *reinterpret_cast<unsigned int*>(&table[i] + 4) = i;
+        i++;
+    }
 }
