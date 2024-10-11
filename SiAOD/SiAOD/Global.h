@@ -5,7 +5,9 @@
 
 
 void InputNumbers(std::vector<unsigned char>& list, unsigned int amount, unsigned int maxNum);
-void OutputNumbers(std::vector<unsigned char>& list);
+void OutputNumbers(const std::vector<unsigned char>& list);
 void Split(const std::string& text, const std::string& delimiter, std::vector<std::string>& tokens);
 void GenerateRandomKeys(const unsigned int maxAmount, const unsigned int keysAmount, std::vector<unsigned int>& buffer);
 void DisplayTimeDuration(std::chrono::steady_clock::duration duration);
+bool IsPrime(unsigned int n);
+unsigned int GetNextPrime(unsigned int n);

@@ -17,15 +17,15 @@ void InputNumbers(vector<unsigned char>& list, unsigned int amount, unsigned int
                 cout << "Введите число не более " << maxNum - 1 << ".\n";
         } while (inp >= maxNum);
 
-        list.push_back((unsigned char)inp);
+        list.push_back(static_cast<unsigned char>(inp));
     }
 }
 
-void OutputNumbers(vector<unsigned char>& list)
+void OutputNumbers(const vector<unsigned char>& list)
 {
     for (unsigned char num : list)
     {
-        cout << (unsigned int)num << " ";
+        cout << static_cast<unsigned int>(num) << " ";
     }
     cout << "\n";
 }
@@ -88,4 +88,23 @@ void DisplayTimeDuration(std::chrono::steady_clock::duration duration)
         }
     }
     cout << "Затраченное время: " << convertedTime << ' ' << timeUnit << ".\n";
+}
+
+bool IsPrime(unsigned int n)
+{
+    if (n <= 1) return false;
+    for (int i = 2; i < sqrt(n) + 1; ++i)
+    {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+unsigned int GetNextPrime(unsigned int n)
+{
+    if (IsPrime(n)) return n;
+    while (!IsPrime(++n))
+    {
+    }
+    return n;
 }

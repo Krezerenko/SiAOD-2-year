@@ -25,6 +25,12 @@
     <Filter Include="Файлы заголовков\Homeworks">
       <UniqueIdentifier>{930f9677-bec4-4256-84ec-6de6bed6757b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Stuctures">
+      <UniqueIdentifier>{a3fffceb-1342-40f0-a206-e855a11a4211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Structures">
+      <UniqueIdentifier>{ea22a4ef-0a13-4c37-96f8-a93605710e20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SiAOD.cpp">
@@ -51,6 +57,18 @@
     <ClCompile Include="HomeworkSelector.cpp">
       <Filter>Исходные файлы\Homeworks</Filter>
     </ClCompile>
+    <ClCompile Include="Homework6_1.cpp">
+      <Filter>Исходные файлы\Homeworks</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable.inl">
+      <Filter>Исходные файлы\Stuctures</Filter>
+    </ClCompile>
+    <ClCompile Include="TableEntry.inl">
+      <Filter>Исходные файлы\Stuctures</Filter>
+    </ClCompile>
+    <ClCompile Include="BankInfo.cpp">
+      <Filter>Исходные файлы\Stuctures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -73,6 +91,18 @@
     </ClInclude>
     <ClInclude Include="HomeworkSelector.h">
       <Filter>Файлы заголовков\Homeworks</Filter>
+    </ClInclude>
+    <ClInclude Include="Homework6_1.h">
+      <Filter>Файлы заголовков\Homeworks</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>Файлы заголовков\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BankInfo.h">
+      <Filter>Файлы заголовков\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="TableEntry.h">
+      <Filter>Файлы заголовков\Structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

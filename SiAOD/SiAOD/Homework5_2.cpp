@@ -10,14 +10,6 @@
 
 using namespace std;
 
-void GenerateStudentsFile(ofstream& file, unsigned int studentsAmount, unsigned int keySize, unsigned int groupSize, unsigned int nameSize);
-char* LinearFileSearch(const std::string& fileName, const unsigned int key, const unsigned int entrySize, const unsigned int keyPosition);
-void PrintStudent(char* student, const unsigned int keySize, const unsigned int groupSize, const unsigned int nameSize);
-void GenerateKeyTable(vector<unsigned long long>& table, ifstream& file, const unsigned int entrySize, const unsigned int keyOffset);
-void SortKeyTable(vector<unsigned long long>& table);
-unsigned int BinarySearchInKeyTable(const vector<unsigned long long>& table, unsigned int key);
-char* AccessFileByRef(ifstream& file, const unsigned int ref, const unsigned int entrySize);
-
 Homework5_2::Homework5_2(const std::string& name) : TaskContainer(name)
 {
     _tasks = { new Task1("1"), new Task2("2"), new Task3("3") };
@@ -56,7 +48,6 @@ void Homework5_2::Task2::Execute()
         start = chrono::high_resolution_clock::now();
         foundEntry = LinearFileSearch("students.sts", key, 64, 0);
         end = chrono::high_resolution_clock::now();
-
     }
     catch(invalid_argument& e)
     {
@@ -80,16 +71,13 @@ void Homework5_2::Task3::Execute()
     ifstream file("students.sts", ios::binary | ios::in);
     vector<unsigned long long> keyTable;
     GenerateKeyTable(keyTable, file, 64, 0);
+    vector<unsigned int> lookupTable;
+    GenerateLookupTable(keyTable.size(), lookupTable);
     unsigned int inputKey;
-    //for (auto pair : keyTable)
-    //{
-    //    auto keyPtr = reinterpret_cast<unsigned int*>(&pair);
-    //    cout << *keyPtr << ' ' << *(keyPtr + 1) << '\n';
-    //}
     cout << "Введите ключ: ";
     cin >> inputKey;
     auto start = chrono::high_resolution_clock::now();
-    unsigned int ref = BinarySearchInKeyTable(keyTable, inputKey);
+    unsigned int ref = BinarySearchInKeyTable(keyTable, inputKey, lookupTable);
     auto end = chrono::high_resolution_clock::now();
     auto duration = end - start;
 
@@ -130,6 +118,8 @@ void GenerateStudentsFile(ofstream& file, unsigned int studentsAmount, unsigned 
         *reinterpret_cast<unsigned int*>(idBuffer) = key;
         strncpy(idBuffer + keySize, "ИКБО-20-23", groupSize);
         strncpy(idBuffer + keySize + groupSize, nameBuffer.c_str(), nameBuffer.size());
+        if (studentsAmount <= 100)
+            PrintStudent(idBuffer, 4, 10, 50);
         file.write(idBuffer, idSize);
     }
 
@@ -193,27 +183,41 @@ void SortKeyTable(vector<unsigned long long>& table)
     });
 }
 
-unsigned int BinarySearchInKeyTable(const vector<unsigned long long>& table, const unsigned int key)
+void GenerateLookupTable(unsigned int len, std::vector<unsigned int>& table)
 {
-    unsigned int left = 0;
-    unsigned int right = table.size() - 1;
-    while (left < right)
+    table = vector<unsigned int>(static_cast<unsigned int>(log2(len)) + 3, 0);
+    unsigned int power = 1;
+    unsigned int count = 0;
+
+    do
     {
-        unsigned int d = (left + right) / 2;
-        if (key > *reinterpret_cast<const unsigned int*>(&table[d]))
+        power <<= 1;
+        table[count] = (len + (power >> 1)) / power;
+    }
+    while (table[count++] != 0);
+}
+
+unsigned int BinarySearchInKeyTable(const vector<unsigned long long>& keyTable, const unsigned int key, const vector<unsigned int>& lookupTable)
+{
+    unsigned int index = lookupTable[0] - 1;
+    unsigned int count = 0;
+    while (lookupTable[count] != 0)
+    {
+        if (key == *reinterpret_cast<const unsigned int*>(&keyTable[index]))
         {
-            left = d + 1;
+            return *(reinterpret_cast<const unsigned int*>(&keyTable[index]) + 1);
+        }
+
+        if (key < *reinterpret_cast<const unsigned int*>(&keyTable[index]))
+        {
+            index -= lookupTable[++count];
         }
         else
         {
-            right = d;
+            index += lookupTable[++count];
         }
     }
-    if (*reinterpret_cast<const unsigned int*>(&table[left]) == key)
-    {
-        return *(reinterpret_cast<const unsigned int*>(&table[left]) + 1);
-    }
-    return table.size();
+    return keyTable.size();
 }
 
 char* AccessFileByRef(ifstream& file, const unsigned int ref, const unsigned int entrySize)
