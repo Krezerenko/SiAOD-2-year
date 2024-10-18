@@ -108,3 +108,13 @@ unsigned int GetNextPrime(unsigned int n)
     }
     return n;
 }
+
+unsigned long long PowI(unsigned long long a, unsigned long long p)
+{
+    unsigned long long pow = 1;
+    for (unsigned long long i = 0; i < p; ++i)
+    {
+        pow *= a;
+    }
+    return pow;
+}

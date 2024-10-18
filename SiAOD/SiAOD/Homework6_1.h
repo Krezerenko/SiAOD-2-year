@@ -1,10 +1,10 @@
 #pragma once
 #include "TaskContainer.h"
-class Homework6_1 :
+class Homework6_1 final :
     public Task
 {
 public:
-    Homework6_1(std::string name) : Task(name)
+    explicit Homework6_1(const std::string& name) : Task(name)
     {
     }
 

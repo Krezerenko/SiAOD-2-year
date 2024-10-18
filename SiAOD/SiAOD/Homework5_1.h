@@ -1,7 +1,7 @@
 #pragma once
 #include "TaskContainer.h"
 
-class Homework5_1 :
+class Homework5_1 final :
     public TaskContainer
 {
     class Task1a final : public Task 

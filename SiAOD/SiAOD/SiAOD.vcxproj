@@ -136,6 +136,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Homework6_1.cpp" />
+    <ClCompile Include="Homework6_2.cpp" />
     <ClCompile Include="TableEntry.inl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -152,6 +153,7 @@
     <ClInclude Include="Global.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="Homework6_1.h" />
+    <ClInclude Include="Homework6_2.h" />
     <ClInclude Include="TableEntry.h" />
     <ClInclude Include="TaskContainer.h" />
     <ClInclude Include="Homework5_1.h" />

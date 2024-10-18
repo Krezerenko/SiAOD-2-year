@@ -11,3 +11,4 @@ void GenerateRandomKeys(const unsigned int maxAmount, const unsigned int keysAmo
 void DisplayTimeDuration(std::chrono::steady_clock::duration duration);
 bool IsPrime(unsigned int n);
 unsigned int GetNextPrime(unsigned int n);
+unsigned long long PowI(unsigned long long a, unsigned long long p);
