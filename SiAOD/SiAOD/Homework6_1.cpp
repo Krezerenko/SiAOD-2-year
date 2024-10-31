@@ -93,5 +93,4 @@ void Homework6_1::Execute()
             std::cout << "Неверная команда.\n\n";
         }
     }
-
 }

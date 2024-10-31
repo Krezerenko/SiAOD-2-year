@@ -1,6 +1,7 @@
 #include "Global.h"
 #include <iostream>
 #include <fstream>
+#include <locale>
 
 using namespace std;
 
@@ -117,4 +118,32 @@ unsigned long long PowI(unsigned long long a, unsigned long long p)
         pow *= a;
     }
     return pow;
+}
+
+std::string ToLowercase(const std::string &a)
+{
+    std::string out;
+    out.reserve(a.length());
+    for (const char &c : a)
+    {
+        if (c >= 'A' && c <= 'Z')
+        {
+            out.push_back(c + 'a' - 'A');
+            continue;
+        }
+        if (c >= 'À' && c <= 'ß')
+        {
+            out.push_back(c + 'à' - 'À');
+            continue;
+        }
+        out.push_back(c);
+    }
+    return out;
+}
+
+int CompareStrings(const std::string& a, const std::string& b)
+{
+    std::string lowercaseA = ToLowercase(a);
+    std::string lowercaseB = ToLowercase(b);
+    return strcmp(lowercaseA.c_str(), lowercaseB.c_str());
 }

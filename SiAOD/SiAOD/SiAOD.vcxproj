@@ -131,12 +131,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BankInfo.cpp" />
+    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="HashTable.inl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Homework6_1.cpp" />
     <ClCompile Include="Homework6_2.cpp" />
+    <ClCompile Include="Homework7_1.cpp" />
     <ClCompile Include="TableEntry.inl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -150,10 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BankInfo.h" />
+    <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="Homework6_1.h" />
     <ClInclude Include="Homework6_2.h" />
+    <ClInclude Include="Homework7_1.h" />
     <ClInclude Include="TableEntry.h" />
     <ClInclude Include="TaskContainer.h" />
     <ClInclude Include="Homework5_1.h" />
