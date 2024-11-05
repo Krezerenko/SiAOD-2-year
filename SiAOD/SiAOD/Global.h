@@ -14,3 +14,4 @@ unsigned int GetNextPrime(unsigned int n);
 unsigned long long PowI(unsigned long long a, unsigned long long p);
 std::string ToLowercase(const std::string& a);
 int CompareStrings(const std::string& a, const std::string& b);
+std::string SpaceAround(unsigned int space, const std::string& str);

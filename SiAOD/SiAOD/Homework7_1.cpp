@@ -36,7 +36,7 @@ void Homework7_1::Execute()
             int distance = tree.Find(city, 0);
             if (distance < 0)
             {
-                std::cout << "Город не найдена.\n\n";
+                std::cout << "Город не найден.\n\n";
             }
             else
             {

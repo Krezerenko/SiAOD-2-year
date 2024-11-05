@@ -147,3 +147,13 @@ int CompareStrings(const std::string& a, const std::string& b)
     std::string lowercaseB = ToLowercase(b);
     return strcmp(lowercaseA.c_str(), lowercaseB.c_str());
 }
+
+std::string SpaceAround(const unsigned int space, const std::string& str)
+{
+    unsigned int len = str.length();
+    unsigned int leftSpace = (space - len) / 2;
+    unsigned int rightSpace = space - leftSpace - len;
+    std::string out = std::string(leftSpace + rightSpace, ' ');
+    out.insert(leftSpace, str);
+    return out;
+}
