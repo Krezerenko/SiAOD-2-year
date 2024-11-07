@@ -24,6 +24,7 @@ public:
     void Insert(const std::string& value);
     void Print(unsigned int space, unsigned int level) const;
     void TraverseInOrder(std::vector<std::string>& result) const;
+    void TraverseLevelOrder(std::vector<std::string>& result) const;
     void TraversePostOrder(std::vector<std::string>& result) const;
     int Find(const std::string& value, unsigned int level) const;
     std::string Average() const;

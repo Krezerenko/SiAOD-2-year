@@ -82,7 +82,7 @@
       <Filter>Исходные файлы\Homeworks</Filter>
     </ClCompile>
     <ClCompile Include="Graph.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Stuctures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +132,7 @@
       <Filter>Файлы заголовков\Homeworks</Filter>
     </ClInclude>
     <ClInclude Include="Graph.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

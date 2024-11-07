@@ -1,6 +1,7 @@
 #include "BinaryTree.h"
 
 #include <iostream>
+#include <queue>
 
 #include "Global.h"
 #include <string>
@@ -108,6 +109,28 @@ void BinaryTree::TraverseInOrder(std::vector<std::string>& result) const
     if (m_right != nullptr)
     {
         m_right->TraverseInOrder(result);
+    }
+}
+
+void BinaryTree::TraverseLevelOrder(std::vector<std::string>& result) const
+{
+    std::queue<const BinaryTree*> queue;
+    queue.push(this);
+    result.push_back(m_value);
+    while (!queue.empty())
+    {
+        const BinaryTree* currentNode = queue.front();
+        if (currentNode->Left() != nullptr)
+        {
+            queue.push(currentNode->Left());
+            result.push_back(currentNode->Left()->Value());
+        }
+        if (currentNode->Right() != nullptr)
+        {
+            queue.push(currentNode->Right());
+            result.push_back(currentNode->Right()->Value());
+        }
+        queue.pop();
     }
 }
 

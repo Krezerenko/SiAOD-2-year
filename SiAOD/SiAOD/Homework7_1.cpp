@@ -15,7 +15,7 @@ void Homework7_1::Execute()
     std::string commandLine;
     std::vector<std::string> arguments;
     std::vector<std::string> elements;
-    std::cout << "Команды:\ninsert, trin, trpost, find, print, mean, exit\n";
+    std::cout << "Команды:\ninsert, trin, trlv, find, print, mean, exit\n";
     std::cout << "Введите команды:\n";
     while (true)
     {
@@ -65,9 +65,9 @@ void Homework7_1::Execute()
             std::cout << '\n';
             elements.clear();
         }
-        else if (arguments[0] == "trpost")
+        else if (arguments[0] == "trlv")
         {
-            tree.TraversePostOrder(elements);
+            tree.TraverseLevelOrder(elements);
             for (auto element : elements)
             {
                 std::cout << element + '\n';
